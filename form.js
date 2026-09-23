@@ -1,4 +1,4 @@
-const http = require('http');
+/*const http = require('http');
 const fs = require('fs');
 const queryString = require('querystring');
 
@@ -98,4 +98,67 @@ http.createServer((req, resp) => {
   //}
     
  //resp.end();
-//}).listen(3200);
+//}).listen(3200);*/
+
+const http = require('http');
+const fs =require('fs');
+const queryString=require('querystring');
+http.createServer((req ,resp)=>{
+  fs.readFile('html/form.html','utf-8',(err,data)=>{
+    if(err){
+      resp.writeHead(500,{'content-Type':'text/plain'});
+      resp.end("Internal server error");
+      return;
+    }
+    if(req.url=='/'){
+      resp.writeHead(200,{'content-Type':'text/html'});
+      resp.write(data);
+      resp.end();
+    }
+    else if (req.url=='/submit'){
+      let dataBody =[];
+      req.on('data',(chunk)=>{
+        dataBody.push(chunk);
+      })
+      req.on('end', () => {
+
+        let rawData = Buffer.concat(dataBody).toString();
+
+        let readableData = queryString.parse(rawData);
+
+        console.log(readableData);
+        let dataString = "My name is " + readableData.name + " and my email is " + readableData.email;
+        console.log(dataString)
+
+   //async way se  
+      // fs.writeFileSync("text/"+readableData.name+".txt",dataString);
+        //console.log("file create")
+         
+        //sync se file create
+        fs.writeFile("text/" +readableData.name+".txt",dataString,'utf-8',(err)=>{
+             if(err){
+              resp.end("Internal server error")
+              return false;
+             }else{
+              console.log("file create");
+             }
+        } )
+     
+      
+    
+      resp.writeHead(200,{'content-Type': 'text/html'});
+      resp.write(`<h1>Data submitted</h1>`);
+      resp.end();
+      }
+    );
+  
+}
+    
+     else {
+      resp.writeHead(404, { 'Content-Type': 'text/plain' });
+      resp.end('Page Not Found');
+     }
+    
+    });
+
+}).listen(4100);
