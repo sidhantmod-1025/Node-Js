@@ -29,7 +29,7 @@ else if (operation =='delete'){
   let data =fs.unlinkSync(fullName);
   console.log(data);
 }else {
-  console.log("this operation is not folnd ");
+  console.log("this operation is not folnd "); 
 }
 
 

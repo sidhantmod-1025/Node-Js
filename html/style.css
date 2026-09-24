@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+    color: #222;
+    
+    background-color:
+        radial-gradient(circle at top left, #dbeafe, transparent 40%),
+        radial-gradient(circle at bottom right, #ede9fe, transparent 40%),
+        #f8fafc;
+
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+
+    background-color: #222;
+}
+
+/* LOGO */
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+    gap: 30px;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* LINK */
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    display: block;
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 18px;
+
+    padding: 10px 5px;
+
+    cursor: pointer;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+/* PAGE CONTENT */
+
+.container {
+    text-align: center;
+
+  background:
+        radial-gradient(circle at top left, #dbeafe, transparent 40%),
+        radial-gradient(circle at bottom right, #ede9fe, transparent 40%),
+        #f8fafc;
+
+    color: #1e293b;
+    min-height: 50vh;
+
+
+    padding: 80px 20px;
+}
+
+.container h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+  
+}
+
+
+.container p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background-color: #222;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #00bcd4;
+}
+
+/* SERVICES */
+
+.services {
+    margin-top: 30px;
+    list-style-position: inside;
+}
+
+.services li {
+    margin: 10px;
+    font-size: 20px;
+}
