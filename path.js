@@ -1,0 +1,18 @@
+const path =require('path');
+
+const file ="text/sidhu.txt"
+
+console.log(path.extname((file)));
+
+console.log(path.dirname((file)));
+
+console.log(path.basename((file)));
+
+console.log(path.resolve(("text","sidhu.txt")));
+
+console.log(path.isAbsolute((file)));
+
+//global module
+
+console.log(__dirname);
+console.log(__filename);
